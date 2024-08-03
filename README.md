@@ -4,6 +4,6 @@ Pretty easy setup for anyone, just run the .ahk script or the compiled executabl
 
 - Hotkey (MouseButton4) for interacting with NPCs
 - Automatically opens and closes cheat engine
-- Provides a (optional) simple auto injector/open script on launch
+- Provides a (optional) simple auto injector/open script for cheat engine
 
 Any other hotkeys using cheat engine should be setup on that program seperately.
