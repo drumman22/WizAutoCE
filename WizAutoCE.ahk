@@ -1,6 +1,6 @@
 #Requires AutoHotkey v2.0
 #SingleInstance Prompt
-; Hotkeys and setup for one-handed/mouse-only on Wizard101
+; Hotkeys and cheatengine auto start/close for Wizard101
 ; Extra hotkeys for cheat engine can be setup seperately
 ; by drumman22
 
@@ -11,9 +11,11 @@ ce_dir := ""
 ; Just incase: Exit with ctrl+shift+esc
 ^+F10::ExitApp()
 
-; Press X w/ MButton4
+; Press X and Space w/ MouseButton4
+; X for speaking to NPCs and Interacting with misc stuff
+; Space for continuing dialog with an NPC
 #HotIf WinActive("ahk_exe " w101_exe)
-XButton1::SendInput("x")
+XButton1::SendInput("{Space}X")
 
 ; Require admin perms
 full_command_line := DllCall("GetCommandLine", "str")
@@ -88,7 +90,7 @@ startCE() {
 	try {
 		Run(ce_dir "\" ce_name ".exe")
 		if WinWaitActive(ce_name) {
-			WinMinimize(ce_name)
+			WinMinimize()
 		} else {
 			MsgBox("This shouldn't have ran lol")
 			ExitApp()
@@ -103,7 +105,7 @@ startCE() {
 stopCE() {
 	try {
 		if WinExist(ce_name) {
-			WinClose(ce_name)
+			WinClose()
 		}
 	} catch as e {
 		MsgBox("Error: " e.Message "`n`nExiting AHK script!")
